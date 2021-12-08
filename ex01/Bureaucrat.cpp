@@ -48,6 +48,21 @@ void    Bureaucrat::decrementGrade()
         this->_grade++;
 }
 
+void    Bureaucrat::signForm(Form *form)
+{
+    // if ( form->getSignature() )
+    //     std::cout << this->_name << " cannot signs" << form->getName()
+    //             << "because the form :" << form->getName() << " was already signed !" << "." << std::endl;
+    if ( this->_grade <= form->getSignedGrade())
+    {
+        std::cout << this->_name << " signs " << form->getName() << "." << std::endl;
+        form->setSignature(true);
+    }
+    else
+        std::cout << this->_name << " cannot signs " << form->getName()
+                << ", because his grade is low to sign the form " << form->getName() << "." << std::endl;
+}
+
     // ------------------  Operator Assignement ----------------------- //
 Bureaucrat&   Bureaucrat::operator = (Bureaucrat const &bureaucrat) 
 {

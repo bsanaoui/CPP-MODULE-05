@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -25,6 +28,7 @@ class Bureaucrat
     // ------------------- Members Public functions ---------------- //
     void    incrementGrade();
     void    decrementGrade();
+    void    signForm(Form *form);
 
     // ------------------  Operator Assignement ----------------------- //
     Bureaucrat& operator= (Bureaucrat const &bureaucrat);
@@ -37,6 +41,7 @@ class Bureaucrat
             return ("The grade is too high");
         }
     };
+    
      // Exception GradeTooLowhException
     class GradeTooLowException : public std::exception
     {
