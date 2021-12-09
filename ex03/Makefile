@@ -1,10 +1,10 @@
-NAME = Form
+NAME = Intern
 
 CC = clang++
 FLAGS = -Werror -Wextra -Wall
 
 SRC = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
-		 RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+		 RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 all : $(NAME)
 

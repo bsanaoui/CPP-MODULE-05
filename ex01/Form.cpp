@@ -46,6 +46,17 @@ void                Form::beSigned(Bureaucrat const &bureaucrat)
         throw GradeTooLowException();
 }
 
+    // ------------------  Exception class ----------------------- //
+const char * Form::GradeTooHighException::what() const throw()
+{
+    return ("The grade is too high");
+}
+
+const char * Form::GradeTooLowException::what() const throw()
+{
+    return ("The grade is too low");
+}
+
     // ------------------  Operator Overload  << ----------------------- //
 std::ostream& operator<< (std::ostream& os, const Form& form)
 {
@@ -57,3 +68,5 @@ std::ostream& operator<< (std::ostream& os, const Form& form)
             << form.getExecutedGrade() << " to execute it, was \"not signed\"";
     return (os);
 }
+
+
