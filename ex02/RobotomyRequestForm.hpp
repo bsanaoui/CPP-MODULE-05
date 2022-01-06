@@ -13,9 +13,16 @@ class RobotomyRequestForm : public Form
 
     public:
     RobotomyRequestForm( std::string target );
+    RobotomyRequestForm();
+    RobotomyRequestForm( const RobotomyRequestForm &form );
+    ~RobotomyRequestForm();
+
+    // ---------------- Constructors & Destructors ------------- //
+    RobotomyRequestForm&   operator = ( const RobotomyRequestForm  &form);
 
     // --------------- Public Members Function ---------------//
     void    execute( Bureaucrat const & executor) const;
+    const std::string getTarget() const;
 };
 
 #endif

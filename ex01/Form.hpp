@@ -21,6 +21,12 @@ class Form
     public:
     // ---------------- Constructors & Destructors ------------- //
     Form( std::string name, int signed_grade, int executed_grade );
+    Form();
+    Form( const Form &form );
+    ~Form();
+
+    // ---------------- Constructors & Destructors ------------- //
+    Form&   operator = ( const Form  &form);
 
     // ----------------- Getters & Setters ------------------------ //
     const std::string&  getName() const;

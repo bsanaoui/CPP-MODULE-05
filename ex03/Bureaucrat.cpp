@@ -18,6 +18,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat)
     *this = bureaucrat;
 }
 
+Bureaucrat::Bureaucrat() : _name("Unkonwn"), _grade(1){}
 
     // ----------------- Getters & Setters ------------------------ //
 const std::string &Bureaucrat::getName() const

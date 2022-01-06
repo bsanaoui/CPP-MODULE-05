@@ -15,6 +15,7 @@ class Bureaucrat
     public:
     // ---------------- Constructors & Destructors ------------- //
     Bureaucrat(std::string name, int grade);
+    Bureaucrat();
     ~Bureaucrat();
     Bureaucrat(const Bureaucrat &bureaucrat);
 

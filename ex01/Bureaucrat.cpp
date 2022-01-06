@@ -13,6 +13,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
  
 Bureaucrat::~Bureaucrat(){}
 
+Bureaucrat::Bureaucrat() : _name("Unkonwn"), _grade(1){}
+
 Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat)
 {
     *this = bureaucrat;

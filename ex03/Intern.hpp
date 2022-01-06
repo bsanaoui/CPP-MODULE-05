@@ -10,7 +10,24 @@ class Form;
 class Intern
 {
     public :
-    static Form * makeForm( std::string form_name, std::string target);
+
+    // ---------------- Constructors & Destructors ------------- //
+
+    Intern();
+    Intern( const Intern &intern );
+    ~Intern();
+    
+    // ---------------- member Function ------------------ //
+    Form * makeForm( std::string form_name, std::string target);
+
+    // ---------------- Assignement operator ------------- //
+    Intern&   operator= ( const Intern  &intern);
+
+
+    Form*  makeShrubberyCreation(std::string const & target) const ;
+    Form*  makeRobotomyRequest(std::string const & target) const ;
+    Form*  makePresidentialPardon(std::string const & target) const ;
+
 };
 
 #endif

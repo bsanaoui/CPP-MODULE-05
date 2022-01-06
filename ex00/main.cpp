@@ -4,14 +4,14 @@ int main ()
 {
 
     try
-    {       // ------- Create Bureaucrat -------------- //
+    {     // ---------- Create Bureaucrat -------------- //
         Bureaucrat bureaucrat("Markon Veraty", 150); // if Grade < 1 OR Grade > 150 will catch an excep
-            // ------------ incrementGrade ------------ //
+          // -------------- incrementGrade ------------ //
         bureaucrat.incrementGrade();
-          // ------------ decrementGrade ------------ //
+          // ------------ decrementGrade -------------- //
         bureaucrat.decrementGrade();
         bureaucrat.decrementGrade();
-          // ----------  Operator Overload << -------//
+          // ----------  Operator Overload << --------- //
         std::cout << bureaucrat << std::endl;
     }
     catch (std::exception &e)

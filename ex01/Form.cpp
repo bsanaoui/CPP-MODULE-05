@@ -11,6 +11,23 @@ Form::Form(std::string name, int signed_grade, int executed_grade)
     this->_signed = false;
 }
 
+Form::Form(): _name("Unkonw") , _executed_grade(5) , _signed_grade(5) {}
+
+Form::Form( const Form &form )
+    : _name(form.getName()) , _executed_grade(form.getExecutedGrade()) , _signed_grade(form.getSignedGrade())
+{
+    *this = form;
+}
+
+Form::~Form(){}
+
+  // -------------------- Assignement operator -------------------- //
+
+Form&   Form::operator = ( const Form  &form)
+{
+    this->_signed = form.getSignature();
+    return (*this);
+}
     // ----------------- Getters & Setters ------------------------ //
 const std::string&  Form::getName() const
 {
@@ -36,7 +53,6 @@ void                Form::setSignature(bool b)
 {
     this->_signed = b;
 }
-
     // ------------------- Members Public functions ---------------- //
 void                Form::beSigned(Bureaucrat const &bureaucrat)
 {

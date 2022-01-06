@@ -21,6 +21,12 @@ class Form
     public:
     // ---------------- Constructors & Destructors ------------- //
     Form( std::string name, int signed_grade, int executed_grade );
+    Form();
+    Form( const Form &form );
+    ~Form();
+
+    // ---------------- Constructors & Destructors ------------- //
+    Form&   operator = ( const Form  &form);
 
     // ----------------- Getters & Setters ------------------------ //
     const std::string&  getName() const;
@@ -47,14 +53,14 @@ class Form
     };
 
     // Exception FormAlreadySignedException ------------------------------//
-    class FormAlreadySignedException : public std::exception
+    class FormNotSignedException : public std::exception
     {
         private:
         std::string _form_name;
 
         public:
-        FormAlreadySignedException( std::string form_name);
-        ~FormAlreadySignedException() throw();
+        FormNotSignedException( std::string form_name);
+        ~FormNotSignedException() throw();
         const char * what () const throw ();
     };
 };

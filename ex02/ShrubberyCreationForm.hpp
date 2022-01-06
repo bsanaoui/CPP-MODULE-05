@@ -13,9 +13,16 @@ class ShrubberyCreationForm : public Form
 
     public:
     ShrubberyCreationForm( std::string target );
+    ShrubberyCreationForm();
+    ShrubberyCreationForm( const ShrubberyCreationForm &form );
+    ~ShrubberyCreationForm();
 
-    // --------------- Public Members Function ---------------//
+    // ---------- Assignement operator ------------------------ //
+    ShrubberyCreationForm& operator = ( const ShrubberyCreationForm  &form);
+    
+    // --------------- Public Members Function --------------- //
     void    execute( Bureaucrat const & executor) const;
+    const std::string getTarget() const;
 };
 
 #endif

@@ -20,6 +20,7 @@ class Bureaucrat
     Bureaucrat(std::string name, int grade);
     ~Bureaucrat();
     Bureaucrat(const Bureaucrat &bureaucrat);
+    Bureaucrat();
 
     // ----------------- Getters & Setters ------------------------ //
     const std::string& getName() const;

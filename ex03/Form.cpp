@@ -1,6 +1,7 @@
 #include "Form.hpp"
 
     // ---------------- Constructors & Destructors ------------- //
+
 Form::Form(std::string name, int signed_grade, int executed_grade)
     : _name(name) , _executed_grade(executed_grade) , _signed_grade(signed_grade)
 {
@@ -9,6 +10,24 @@ Form::Form(std::string name, int signed_grade, int executed_grade)
     else if (executed_grade > 150 || signed_grade > 150)
         throw GradeTooLowException();
     this->_signed = false;
+}
+
+Form::Form(): _name("Unkonw") , _executed_grade(5) , _signed_grade(5) {}
+
+Form::Form( const Form &form )
+    : _name(form.getName()) , _executed_grade(form.getExecutedGrade()) , _signed_grade(form.getSignedGrade())
+{
+    *this = form;
+}
+
+Form::~Form(){}
+
+  // -------------------- Assignement operator -------------------- //
+
+Form&   Form::operator = ( const Form  &form)
+{
+    this->_signed = form.getSignature();
+    return (*this);
 }
 
     // ----------------- Getters & Setters ------------------------ //
@@ -48,8 +67,8 @@ void                Form::beSigned(Bureaucrat const &bureaucrat)
 
 void        Form::execute(Bureaucrat const & executor) const
 {
-    if (this->_signed)
-        throw FormAlreadySignedException(this->_name);
+    if (!this->_signed)
+        throw FormNotSignedException(this->_name);
     else if (executor.getGrade() > this->_executed_grade)
         throw GradeTooLowException();
     else
@@ -81,19 +100,19 @@ const char * Form::GradeTooLowException::what() const throw ()
     return ("The grade is too low !");
 }
 
-Form::FormAlreadySignedException::FormAlreadySignedException( std::string form_name)
+Form::FormNotSignedException::FormNotSignedException( std::string form_name)
         : _form_name(form_name){}
 
-Form::FormAlreadySignedException::~FormAlreadySignedException() throw()
+Form::FormNotSignedException::~FormNotSignedException() throw()
 {
     return ;
 }
 
-const char * Form::FormAlreadySignedException::what () const throw ()
+const char * Form::FormNotSignedException::what () const throw ()
 {
     std::string msg = "The form :";
     msg.append(_form_name);
-    msg.append(" already signed !");
+    msg.append(" not signed !");
     return (msg.c_str());
 }
 
